@@ -12,7 +12,6 @@
     <p>STATUS: {{ tasks.status }}</p>
     <br>
     <form action="/update/{{ tasks.task_id }}" method="post">
-        <!-- {{ form.csrf_token }} -->
         {{ form.hidden_tag() }}
 
         {{ form.task(size=20, placeholder="input task name") }}
