@@ -1,12 +1,13 @@
 from flask import Flask, render_template, request, redirect
-from dotenv import load_dotenv
 import requests
 import os
 from flask_wtf import FlaskForm
 from wtforms.validators import DataRequired
 from wtforms import StringField, SubmitField, HiddenField, SelectField
 
-load_dotenv()
+print("##########")
+print(os.environ)
+print("##########")
 
 app = Flask(__name__)
 
@@ -14,12 +15,12 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "123456789"
 app.config["WTF_CSRF_ENABLED"] = True
 
-# Difine API url
+# Define API url
 backend_url = os.getenv("BACKEND_URL", "http://localhost:5000")
 task_url = f"""{backend_url}/tasks"""
 
 '''
-Difine taskform
+Define taskform
 FYI: https://msiz07-flask-docs-ja.readthedocs.io/ja/latest/patterns/wtforms.html
 '''
 class TaskForm(FlaskForm):
@@ -113,4 +114,4 @@ def update(taskId):
             return render_template("update.html", tasks=tasks, form=form)
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=8080)

@@ -7,10 +7,10 @@ ENV PYTHONUNBUFFERED 1
 # assign working dir
 WORKDIR /src
 # copy all files
-COPY ./ ./
+COPY ./web ./
 # list files and directories
-RUN ls -la && sleep 20
+RUN ls -la && sleep 10
 # install packages
-RUN pip install -r frontend/requirements.txt
+RUN pip install -r requirements.txt
 
-CMD ["python", "frontend/app.py"]
+CMD ["python", "app.py"]
