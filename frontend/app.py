@@ -1,12 +1,14 @@
 from flask import Flask, render_template, request, redirect
-from dotenv import load_dotenv
 import requests
 import os
 from flask_wtf import FlaskForm
 from wtforms.validators import DataRequired
 from wtforms import StringField, SubmitField, HiddenField, SelectField
 
-load_dotenv()
+print("##########")
+print(os.environ)
+print("##########")
+
 
 app = Flask(__name__)
 
@@ -113,4 +115,4 @@ def update(taskId):
             return render_template("update.html", tasks=tasks, form=form)
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=8080)
