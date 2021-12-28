@@ -9,6 +9,7 @@ services:
     volumes:
      - "./docker/dynamodb:/home/dynamodblocal/data"
     working_dir: /home/dynamodblocal
+    
   backend:
     env_file: .env
     container_name: backend
@@ -16,7 +17,7 @@ services:
       context: .
       dockerfile: backend/Dockerfile
     ports:
-     - "5000:5000"
+     - "5001:5001"
     depends_on:
      - "dynamodb-local"
     links:
